@@ -16,3 +16,6 @@ function displayContacts(array $contacts):void
         echo 'Phone: ' . $contact['phone'] . '<br>';
     }
 }
+function FunctionName()  {
+    return 1;
+}
