@@ -10,12 +10,38 @@ function addContact(array &$contacts  , string $name, string $email, $phone):voi
 
 function displayContacts(array $contacts):void 
 {
-    foreach ($contacts as $contact) {
-        echo 'Name: ' . $contact['name'] . '<br>';
-        echo 'Email: ' . $contact['email'] . '<br>';
-        echo 'Phone: ' . $contact['phone'] . '<br>';
+    if(empty($contacts)){
+        echo "No contacts available. \n";
+    }else{
+        foreach($contacts as $contact){
+            echo "
+            Name: {$contact['name']}
+            Email: {$contact['email']}
+            Phone: {$contact['phone']} \n
+            ";
+        }
     }
 }
-function FunctionName()  {
-    return 1;
+
+while(true){
+    echo "\nContact Management System : \n";
+    echo "1. Add Contact \n2. View Contacts \n3. Exit \n";
+    $choice = (int) readline("Enter your choice: ");
+
+    if($choice === 1){
+        $name = readline("Enter Name: ");
+        $email = readline("Enter Email: ");
+        $phone = readline("Enter Phone: ");
+        addContact($contacts, $name, $email, $phone);
+        echo "$name added to contacts. \n";
+        echo "$email added to contacts. \n";
+        echo "$phone added to contacts. \n";
+    }else if($choice === 2){
+        displayContacts($contacts);
+    }else if($choice === 3){
+        echo "Exiting... \n";
+        break;
+    }else{
+        echo "Invalid choice. \n";
+    }
 }
